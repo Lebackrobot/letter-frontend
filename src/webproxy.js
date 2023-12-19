@@ -1,6 +1,9 @@
 const renderHTML = async () => {
     const URL = await getURL()
-    const HTML = await getHTML({ url: URL, permission:window.localStorage.getItem('permission') })
+    const HTML = await getHTML({ 
+        url: URL, 
+        permission: window.localStorage.getItem('permission') 
+    })
 
     return HTML
 }

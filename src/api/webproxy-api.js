@@ -1,6 +1,6 @@
 // URL do servidor externo
-const getHTML = (payload, urlBase = 'http://localhost:5000', endpoint = 'v2/webproxy') => {
-    return axios.post(`${urlBase}/${endpoint}`, payload)
+const getHTML = (query, urlBase = 'http://localhost:5000', endpoint = 'v2/webproxy') => {
+    return axios.get(`${urlBase}/${endpoint}?url=${query.url}?permission=${query.permission}`)
         .then(response => {
             return response.data
         })
