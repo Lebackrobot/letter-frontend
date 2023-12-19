@@ -1,37 +1,25 @@
 import express from 'express'
+import cors from 'cors'
 
 const server = express()
 
 const rootPath = './src'
-const port = 8000
+const port = 4000
 
+server.use(cors())
 server.use(express.static(rootPath))
 
-// Redirect to signin/Account 
+// Redirect to /webproxy 
 server.get('/', (req, res) => {
-    res.redirect('/signin')
+    res.sendFile('index.html', { root: rootPath })
 })
 
-// Signin
-server.get('/signin', (req, res) => {
-    res.sendFile('features/signin/signin.html', { root: rootPath })
+// Webproxy
+server.get('/webproxy', (req, res) => {
+    res.sendFile('build.html', { root: rootPath })
 })
 
-// Signout 
-server.get('/signup', (req, res) => {
-    res.sendFile('features/signup/signup.html', { root: rootPath })
-})
-
-// Forget password
-server.get('/forget-password', (req, res) => {
-    res.sendFile('features/forget-password/forget-password.html', { root: rootPath })
-})
-
-// Account
-server.get('/account', (req, res) => {
-    res.sendFile('features/account/account.html', { root: rootPath})
-})
-
+// Listen on port 4000
 server.listen(port, () => {
-    console.log(`Server list on port ${port}`)
+    console.log(`Server listen on port ${port}`)
 })
