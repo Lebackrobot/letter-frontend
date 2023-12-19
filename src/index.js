@@ -9,15 +9,9 @@ const onclickSaveUser = () => {
 // Function: Envia um POST p/ nosso backend (HTML event)
 const onclickSearch = async () => {
     const url = document.getElementById('inputURL').value
-    const user_permission = localStorage.getItem('permission')
 
-    response = await getHTML({ url: url, permission: user_permission })
-
-    localStorage.setItem('responseHTML', response)
-    
+    await createUrl({ url })
     window.location.href = '/webproxy'
-
-    
 
 }
 
