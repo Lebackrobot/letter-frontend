@@ -16,7 +16,7 @@ server.get('/', (req, res) => {
 
 // Webproxy
 server.get('/webproxy', (req, res) => {
-    res.sendFile('build.html', { root: rootPath })
+    res.sendFile('webproxy.html', { root: rootPath })
 })
 
 // Listen on port 4000
